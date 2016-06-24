@@ -12,20 +12,5 @@ namespace albov\JsonObject\Contract;
 interface JsonContract
 {
 
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    public function addFields(array $data);
-
-    /**
-     * @return mixed
-     */
-    public function render();
-
-    /**
-     * @return mixed
-     */
-    public function toArray();
 
 }

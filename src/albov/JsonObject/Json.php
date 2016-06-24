@@ -14,16 +14,29 @@ use albov\JsonObject\Contract\JsonContract;
 class Json implements JsonContract
 {
 
-    public function __construct(array $data)
-    {
-        $this->addFields($data);
+    /**
+     * Create a new Json object empty
+     *
+     * Eg: create($param1,$param2,$param3)
+     *
+     * @return $this
+     */
+    public function create(){
+
+        $fields = array_flip(func_get_args());
+        foreach($fields as $key=> $val){
+            $this->$key = null;
+        }
+        return $this;
     }
 
     /**
+     * Create a Json Object from  an array with data
+     *
      * @param array $data
      * @return $this
      */
-    public function addFields(array $data){
+    public function createFromArray(array $data){
         foreach($data as $key=> $val){
             $this->$key = $val;
         }
