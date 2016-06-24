@@ -1,9 +1,6 @@
 {
     "name": "albo-vieira/json-object",
-    "description": "Create a json Object",
-    "require": {
-
-    },
+    "description": "Json object to work better with json",
     "license": "MIT",
     "authors": [
         {
@@ -12,9 +9,11 @@
         }
     ],
     "minimum-stability": "dev",
+    "require": {},
     "autoload":{
         "psr-4" : {
             "albov\\JsonObject\\": "src/albov/JsonObject/"
         }
     }
 }
+
