@@ -43,14 +43,16 @@ class Json implements JsonContract
         return $this;
     }
 
-    /**
+    /** Retrieves a json from object
+     *
      * @return string
      */
     public function render(){
         return json_encode($this->toArray());
     }
 
-    /**
+    /** Retrieves an array from object
+     *
      * @return array
      */
     public function toArray(){
