@@ -9,10 +9,11 @@ composer require albo-vieira/json-object:dev-master && install
 ### Usage
 ```sh
 /** Creating a Json Object without data, just keys */
-$json = new \albov\JsonObject\Json();
+$json = new \JsonObject\Json();
 $json->create('id','status','data','message','token');
 
 /** Creating a Json Object with data, keys and values */
+$json = new \JsonObject\Json();
 $json->createFromArray(
     [
         'id' => 1,
