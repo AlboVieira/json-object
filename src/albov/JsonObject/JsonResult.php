@@ -21,13 +21,13 @@ class JsonResult extends Json
 
     public function __construct()
     {
-        parent::__construct([
+        $this->create(
             'status',
             'message',
             'url',
             'data',
             'error'
-        ]);
+        );
     }
 
 }
