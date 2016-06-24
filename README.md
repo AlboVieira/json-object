@@ -13,11 +13,11 @@ $json = new \albov\JsonObject\Json();
 $json->create('id','status','data','message','token');
 
 /** Creating a Json Object with data, keys and values */
-$json = new \albov\JsonObject\Json(
+$json->createFromArray(
     [
         'id' => 1,
         'status' => 'on',
-        'data' => ['1'],
+        'data' => ['1',2,3],
         'message' => 'A message',
         'token' => 'Token for validate'
     ]
