@@ -3,7 +3,7 @@ Json object to work better with json .
 
 ### Instalation
 ```sh
-composer require albo-vieira/json-object && install
+composer require albo-vieira/json-object:dev-master && install
 ```
 
 ### Usage
