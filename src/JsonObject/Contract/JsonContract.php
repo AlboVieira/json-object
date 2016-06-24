@@ -6,7 +6,7 @@
  * Time: 21:59
  */
 
-namespace albov\JsonObject\Contract;
+namespace JsonObject\Contract;
 
 
 interface JsonContract

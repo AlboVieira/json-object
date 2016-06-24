@@ -6,10 +6,10 @@
  * Time: 21:59
  */
 
-namespace albov\JsonObject;
+namespace JsonObject;
 
 
-use albov\JsonObject\Contract\JsonContract;
+use JsonObject\Contract\JsonContract;
 
 class Json implements JsonContract
 {
