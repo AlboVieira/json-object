@@ -57,9 +57,18 @@ class Json implements JsonContract
      * @return $this
      */
     public static function createFromJson($json){
+
         $instance = new self();
         $data = json_decode($json);
-        return $instance->fillObject($data);
+
+        $error = json_last_error_msg();
+        if($error === 'No error'){
+            return $instance->fillObject($data);
+        }
+        else{
+            return $error;
+        }
+
     }
 
     /**
@@ -67,6 +76,7 @@ class Json implements JsonContract
      * @return $this
      */
     private function fillObject($data){
+
         foreach($data as $field => $val){
             $this->$field = $val;
         }
