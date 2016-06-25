@@ -12,6 +12,18 @@ class Json implements JsonContract
 {
 
     /**
+     * Json constructor.
+     */
+    public function __construct()
+    {
+        $fields = array_flip(func_get_args());
+        foreach($fields as $key=> $val){
+            $this->$key = null;
+        }
+        return $this;
+    }
+
+    /**
      * Create a new Json object empty
      *
      * Eg: create($param1,$param2,$param3)

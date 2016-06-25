@@ -16,15 +16,10 @@ class JsonResult extends Json
     const STATUS_ERROR = 'error';
     const STATUS_INFO = 'info';
 
+
     public function __construct()
     {
-        $this->create(
-            'status',
-            'message',
-            'url',
-            'data',
-            'error'
-        );
+        parent::__construct('status', 'message', 'url', 'data', 'error');
     }
 
 }
