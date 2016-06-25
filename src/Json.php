@@ -31,7 +31,7 @@ class Json implements JsonContract
     }
 
     /**
-     * Create a Json Object from  an array with data
+     * Create a Json Object from an array with data
      *
      * @param array $data
      * @return $this
@@ -42,7 +42,7 @@ class Json implements JsonContract
     }
 
     /**
-     * Create a new Json object from  an json string
+     * Create a new Json object from an json string
      * $param $json
      * @return $this
      */
@@ -52,6 +52,10 @@ class Json implements JsonContract
         return $this->fillObject($data);
     }
 
+    /**
+     * @param $data
+     * @return $this
+     */
     public function fillObject($data){
         foreach($data as $field => $val){
             $this->$field = $val;
