@@ -37,8 +37,24 @@ class Json implements JsonContract
      * @return $this
      */
     public function createFromArray(array $data){
-        foreach($data as $key=> $val){
-            $this->$key = $val;
+
+        return $this->fillObject($data);
+    }
+
+    /**
+     * Create a new Json object from  an json string
+     * $param $json
+     * @return $this
+     */
+    public function createFromJson($json){
+
+        $data = json_decode($json);
+        return $this->fillObject($data);
+    }
+
+    public function fillObject($data){
+        foreach($data as $field => $val){
+            $this->$field = $val;
         }
         return $this;
     }
