@@ -9,6 +9,10 @@
 namespace JsonObject\Contract;
 
 
+/**
+ * Interface JsonContract
+ * @package JsonObject\Contract
+ */
 interface JsonContract
 {
 
@@ -19,7 +23,7 @@ interface JsonContract
      *
      * @return $this
      */
-    public function create();
+    public static function create();
 
     /**
      * Create a Json Object from an array with data
@@ -27,14 +31,14 @@ interface JsonContract
      * @param array $data
      * @return $this
      */
-    public function createFromArray(array $data);
+    public static function createFromArray(array $data);
 
     /**
      * Create a new Json object from an json string
      * $param $json
      * @return $this
      */
-    public function createFromJson($json);
+    public static function createFromJson($json);
 
     /** Retrieves a json from object
      *

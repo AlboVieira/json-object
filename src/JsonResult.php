@@ -3,7 +3,10 @@
 namespace JsonObject;
 
 
-
+/**
+ * Class JsonResult
+ * @package JsonObject
+ */
 class JsonResult extends Json
 {
 

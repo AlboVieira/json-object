@@ -4,6 +4,10 @@ namespace JsonObject;
 
 use JsonObject\Contract\JsonContract;
 
+/**
+ * Class Json
+ * @package JsonObject
+ */
 class Json implements JsonContract
 {
 
@@ -14,13 +18,14 @@ class Json implements JsonContract
      *
      * @return $this
      */
-    public function create(){
+    public static function create(){
 
+        $instance = new self();
         $fields = array_flip(func_get_args());
         foreach($fields as $key=> $val){
-            $this->$key = null;
+            $instance->$key = null;
         }
-        return $this;
+        return $instance;
     }
 
     /**
@@ -29,9 +34,9 @@ class Json implements JsonContract
      * @param array $data
      * @return $this
      */
-    public function createFromArray(array $data){
-
-        return $this->fillObject($data);
+    public static function createFromArray(array $data){
+        $instance = new self();
+        return $instance->fillObject($data);
     }
 
     /**
@@ -39,17 +44,17 @@ class Json implements JsonContract
      * $param $json
      * @return $this
      */
-    public function createFromJson($json){
-
+    public static function createFromJson($json){
+        $instance = new self();
         $data = json_decode($json);
-        return $this->fillObject($data);
+        return $instance->fillObject($data);
     }
 
     /**
      * @param $data
      * @return $this
      */
-    public function fillObject($data){
+    private function fillObject($data){
         foreach($data as $field => $val){
             $this->$field = $val;
         }
