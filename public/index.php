@@ -1,7 +1,6 @@
 <?php
 require_once "../bootstrap.php";
 
-
 /** Creating a Json Object without data, just keys */
 $json = new \JsonObject\Json();
 $json->create('id','status','data','message','token');
