@@ -30,14 +30,13 @@ class Json implements JsonContract
      *
      * @return $this
      */
-    public static function create(){
+    public  function create(){
 
-        $instance = new self();
         $fields = array_flip(func_get_args());
         foreach($fields as $key=> $val){
-            $instance->$key = null;
+            $this->$key = null;
         }
-        return $instance;
+        return $this;
     }
 
     /**
@@ -46,9 +45,8 @@ class Json implements JsonContract
      * @param array $data
      * @return $this
      */
-    public static function createFromArray(array $data){
-        $instance = new self();
-        return $instance->fillObject($data);
+    public function createFromArray(array $data){
+        return $this->fillObject($data);
     }
 
     /**
@@ -56,14 +54,13 @@ class Json implements JsonContract
      * $param $json
      * @return $this
      */
-    public static function createFromJson($json){
+    public function createFromJson($json){
 
-        $instance = new self();
         $data = json_decode($json);
 
         $error = json_last_error_msg();
         if($error === 'No error'){
-            return $instance->fillObject($data);
+            return $this->fillObject($data);
         }
         else{
             return $error;

@@ -23,7 +23,7 @@ interface JsonContract
      *
      * @return $this
      */
-    public static function create();
+    public function create();
 
     /**
      * Create a Json Object from an array with data
@@ -31,14 +31,14 @@ interface JsonContract
      * @param array $data
      * @return $this
      */
-    public static function createFromArray(array $data);
+    public  function createFromArray(array $data);
 
     /**
      * Create a new Json object from an json string
      * $param $json
      * @return $this
      */
-    public static function createFromJson($json);
+    public function createFromJson($json);
 
     /** Retrieves a json from object
      *

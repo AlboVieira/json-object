@@ -3,10 +3,11 @@ require_once "../bootstrap.php";
 
 use JsonObject\Json;
 
-
+$json = new Json();
 
 /** Creating a Json Object without data, just keys */
-$json = Json::create('id','status','data','message','token');
+$obj = $json->create('id','status','data','message','token');
+
 
 /** Creating a Json Object with data, keys and values from a string json */
 $jsonStr= '{
@@ -17,10 +18,11 @@ $jsonStr= '{
             "text":"here is a message. message"
         }
     }' ;
-$json = Json::createFromJson($jsonStr);
+$objFromJson = (new Json())->createFromJson($jsonStr);
+
 
 /** Creating a Json Object with data, keys and values from an array */
-$json = Json::createFromArray([
+$objFromArray = (new Json())->createFromArray([
     'id' => 1,
     'status' => 'on',
     'data' => [1,2],
@@ -29,12 +31,13 @@ $json = Json::createFromArray([
 ]);
 
 /** The keys of the array became attributes , then you can change the values like you want */
-$json->status = 'off';
-$json->token = 'New Token';
+$objFromArray->status = 'off';
+$objFromArray->token = 'New Token';
+
 
 /** Render Json */
 $json->render();
 
-/** Convert obj to array */
+/** Convert obj in array */
 $json->toArray();
 
