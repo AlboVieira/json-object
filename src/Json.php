@@ -16,11 +16,10 @@ class Json implements JsonContract
      */
     public function __construct()
     {
-        $fields = array_flip(func_get_args());
-        foreach($fields as $key=> $val){
-            $this->$key = null;
+        if(func_num_args() > 0){
+            $fields = array_flip(func_get_args());
+            $this->fillObject($fields,false);
         }
-        return $this;
     }
 
     /**
@@ -33,9 +32,7 @@ class Json implements JsonContract
     public  function create(){
 
         $fields = array_flip(func_get_args());
-        foreach($fields as $key=> $val){
-            $this->$key = null;
-        }
+        $this->fillObject($fields,false);
         return $this;
     }
 
@@ -72,10 +69,10 @@ class Json implements JsonContract
      * @param $data
      * @return $this
      */
-    private function fillObject($data){
+    private function fillObject($data, $withValue = true){
 
-        foreach($data as $field => $val){
-            $this->$field = $val;
+        foreach($data as $attribute => $val){
+            $this->$attribute = $withValue ? $val : null;
         }
         return $this;
     }
