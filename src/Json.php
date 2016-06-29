@@ -11,6 +11,9 @@ use JsonObject\Contract\JsonContract;
 class Json implements JsonContract
 {
 
+    const WITH_VALUE = true;
+    const WITHOUT_VALUE = false;
+
     /**
      * Json constructor.
      */
@@ -18,7 +21,7 @@ class Json implements JsonContract
     {
         if(func_num_args() > 0){
             $fields = array_flip(func_get_args());
-            $this->fillObject($fields,false);
+            $this->fillObject($fields, self::WITHOUT_VALUE);
         }
     }
 
@@ -32,7 +35,7 @@ class Json implements JsonContract
     public  function create(){
 
         $fields = array_flip(func_get_args());
-        $this->fillObject($fields,false);
+        $this->fillObject($fields,self::WITHOUT_VALUE);
         return $this;
     }
 
@@ -67,9 +70,10 @@ class Json implements JsonContract
 
     /**
      * @param $data
+     * @param $withValue
      * @return $this
      */
-    private function fillObject($data, $withValue = true){
+    private function fillObject($data, $withValue = self::WITH_VALUE){
 
         foreach($data as $attribute => $val){
             $this->$attribute = $withValue ? $val : null;
