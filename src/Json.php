@@ -1,7 +1,6 @@
 <?php
 namespace JsonObject;
 
-
 use JsonObject\Contract\JsonContract;
 
 /**
@@ -56,8 +55,7 @@ class Json implements JsonContract
      */
     public function createFromJson($json){
 
-        $data = json_decode($json);
-
+        $data = json_decode($json, true);
         $error = json_last_error_msg();
         if($error === 'No error'){
             return $this->fillObject($data);
